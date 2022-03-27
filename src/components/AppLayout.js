@@ -8,7 +8,7 @@ const AppLayout = () => {
           <h2>HOME</h2>
         </a>
       </Link>
-      <Link href="/conuter">
+      <Link href="/counter">
         <a>
           <h2>to counter</h2>
         </a>

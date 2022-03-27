@@ -1,56 +1,39 @@
 import React, { useState } from "react";
-import AppLayout from "../components/AppLayout";
 
 export default function Calc(){
-    const [num1, setNum1] = useState(0)
-    const [num2, setNum2] = useState(0)
-    const [opcode, setOpcode] = useState("")
-    const [result,setResult] = useState(0)
-    const sum = () => {
-        const n1 = document.getElementById('num1')
-        const n2 = document.getElementById('num2')
-        let num1 = n1.value
-        
-        console.log('숫자1 : '+num1)
-        let num2 = n2.value
-        console.log('숫자2 : '+num2)
-        setNum1(num1)
-        const op = document.getElementById('opcode').value
-        setOpcode(op)
-        console.log('op : '+opcode)
-        setNum2(num2)
-        let res = ''
+    const [inputs, setInputs] = useState({})
+    const {num1, num2, opcode} = inputs;
+    const [result, setResult] = useState('')
+
+    const onChange = (e) =>{
+        e.preventDefault()
+        const{value, name} = e.target;
+        setInputs({...inputs, [name]: value})
+    }
+    const onClick = (e) => {
+        e.preventDefault()
         switch(opcode){
             case "+": 
-            res = Number(num1) + Number(num2)
-            break
+            return setResult(Number(num1) + Number(num2)) 
             case "-": 
-            res = Number(num1) - Number(num2)  
-            break
+            return setResult(Number(num1) - Number(num2))  
             case "*":
-            res = Number(num1) * Number(num2)
-            break
+            return setResult(Number(num1) * Number(num2)) 
             case "/":
-            res = Number(num1) / Number(num2)
-            break
+            return setResult(Number(num1) / Number(num2))  
             case "%":
-            res = Number(num1) % Number(num2)
-            break
+            return setResult(Number(num1) % Number(num2))  
             default:
         } 
-        //document.getElementById('num1').value = ''
-        //document.getElementById('num2').value = ''
-        //console.log('result : '+res)
-        setResult(res) 
-        
-
     }
-    return <><h1>Calc</h1>
 
+    return <>
+        <form>
+        <h1>Calc</h1>
             <label htmlFor=""><b>Num1 </b></label>
-            <input id="num1"type=""/><br />
+            <input type="text" name="num1" onChange={onChange}/><br />
             <label htmlFor=""><b>Opcode </b></label>
-            <select name="" id="opcode">
+            <select name="opcode" id=""onChange={onChange}>
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
@@ -59,9 +42,9 @@ export default function Calc(){
             </select>
             <br />
             <label htmlFor=""><b>Num2 </b></label>
-            <input id="num2"type="" /><br />
-            <button onClick={sum}>계산하기</button>
-
+            <input type="text" name="num2" onChange={onChange}/><br />
+            <button onClick={onClick}>계산하기</button>
+        </form>
             <div>결과 : {num1} {opcode} {num2} = {result}</div>
     </>
-}
+} 
