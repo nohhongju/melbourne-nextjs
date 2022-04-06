@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./pages"
+    },
+    "include": ["pages"]
+}
