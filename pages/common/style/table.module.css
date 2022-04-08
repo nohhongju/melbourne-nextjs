@@ -5,11 +5,12 @@
   }
   
   .td {
-    border: 1px solid black;
+    border: 1px solid rgb(165, 53, 235);
     text-align: left;
     padding: 8px;
+    background-color: rgb(248, 244, 250);
   }
   
   .tr {
-    border: 1px solid black;
+    border: 1px solid rgb(2, 1, 2);
   }

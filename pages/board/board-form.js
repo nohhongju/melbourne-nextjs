@@ -13,7 +13,7 @@ export default function BoardhtmlForm(){
     const handleSubmit = e => {
         e.preventDefault()
         alert(`데이터셋 출력 : ${JSON.stringify(inputs)}`)
-        axios.post('http://localhost:5000/api/board/write',inputs)
+        axios.post('http://localhost:5000/api/board/form',inputs)
         .then(res => {
             alert(`결과: ${res.data.result}`)
         })
