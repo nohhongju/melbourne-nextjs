@@ -1,8 +1,7 @@
-import Column from "antd/lib/table/Column";
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import tableStyle from "../common/style/table.module.css";
+import Link from "next/link";
 
 const Table = ({ columns, colspan, data }) => {
     return(
@@ -10,7 +9,8 @@ const Table = ({ columns, colspan, data }) => {
         <thead>
         {/** <th key={column} className={tableStyle.td}>{column}</th> */}
          <tr className={tableStyle.tr}>
-         {columns.map((column) => (<th key={column.username} className={tableStyle.td}>{column}</th>))}
+         {columns.map((column) => (
+             <th key={column.username} className={tableStyle.td}>{column}</th>))}
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,12 @@ const Table = ({ columns, colspan, data }) => {
                                 </tr>
             :data.map((user) => (
                 <tr className={tableStyle.tr} key={user.username}>
-                    <td className={tableStyle.td}>{user.username}</td>
+                  <td className={tableStyle.td}>
+                    <Link href={{pathname: `/user/[username]`,
+                                query:{selectedUser: 'test'}}} as={`/user/${user.username}`}>
+                      <a>{user.username}</a>          
+                    </Link>
+                  </td>
                     <td className={tableStyle.td}>{user.password}</td>
                     <td className={tableStyle.td}>{user.name}</td>
                     <td className={tableStyle.td}>{user.telephone}</td>
@@ -33,7 +38,6 @@ const Table = ({ columns, colspan, data }) => {
 export default function UserList(){
     const columns = ["Username", "Password", "Name", "Telephone"];
     const [data, setData] = useState([])
-    const count = data.length
     useEffect(() => {
         axios.get('http://localhost:5000/api/user/list').then(res=>{
             setData(res.data.users)
