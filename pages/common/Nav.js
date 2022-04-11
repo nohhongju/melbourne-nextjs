@@ -17,8 +17,8 @@ export default function Nav(){
                 <li className={style.li}> <Link href='/game/team-list'>TeamList</Link></li>
                 <li className={style.li}> <Link href='/game/team-form'>TeamForm</Link></li>
                 <li className={style.li}> <Link href='/todo/todo-list'>TodoList</Link></li>
-                <li className={style.li}> <Link href='/user/sign-in'>SignIn</Link></li>
-                <li className={style.li}> <Link href='/user/sign-up'>SignUp</Link></li>
+                <li className={style.li}> <Link href='/user/login'>SignIn</Link></li>
+                <li className={style.li}> <Link href='/user/join'>SignUp</Link></li>
                 <li className={style.li}> <Link href='/user/user-list'>UserList</Link></li>
             </ul>
         </nav>
