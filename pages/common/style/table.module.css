@@ -1,16 +1,28 @@
 .table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: separate; 
+  border-spacing: 1.5px; 
+  text-align: center; 
+  line-height: 1.5; 
+  margin: 10px 10px;
   }
   
   .td {
-    border: 1px solid rgb(165, 53, 235);
-    text-align: left;
-    padding: 8px;
-    background-color: rgb(248, 244, 250);
+    border:1px solid rgb(181, 78, 150);
   }
   
   .tr {
-    border: 1px solid rgb(2, 1, 2);
+    width: 160px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+  }
+  .th { 
+    width: 160px; 
+    padding: 10px; 
+    font-weight: bold; 
+    vertical-align: top; 
+    color: #fff; 
+    background: #ce4869 ;
   }
