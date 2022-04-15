@@ -1,4 +1,4 @@
-import style from "board/style/board-form.module.css"
+import style from "../board/style/board-form.module.css"
 import { useState } from "react"
 
 export default function TeamForm(){

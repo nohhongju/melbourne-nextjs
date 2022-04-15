@@ -1,7 +1,7 @@
 import style from "./style/board-form.module.css";
 import React,{ useState } from 'react' 
 import axios from "axios";
-import { addTask } from "../../redux/reducers/board.reducer";
+import { addTask } from "../../redux/reducers/boardReducer";
 import { useDispatch } from "react-redux";
 
 export default function Board(){

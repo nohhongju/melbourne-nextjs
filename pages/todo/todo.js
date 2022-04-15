@@ -1,6 +1,6 @@
 import React,{ useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask, addTodo } from '../../redux/reducers/todo.reducer'
+import { addTask, addTodo } from '../../redux/reducers/todoReducer'
 // import './styles/Task.scss'
 export default function AddTodo() {
     const [value, setValue] = useState('')

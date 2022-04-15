@@ -13,12 +13,12 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import  Link  from "next/link";
 import * as yup from "yup";
-import _ from "@lodash";
+import * as _ from 'lodash';
 // import { LayOut } from "features/common";
 // import "features/common/font/font.scss";
 // import "features/common/style/image.scss";
 // import "features/user/style/UserLayout.scss";
-import { loginRequest } from "../../redux/reducers/user.reducer";
+import { loginRequest } from "../../redux/reducers/userReducer";
 import Image from "next/image";
 const Root = styled("div")(({ theme }) => ({
   "& .Login3-leftSection": {},
@@ -60,7 +60,7 @@ export default function Login() {
   return (
     <>
       <Root
-        style={{ width: "60vh", marginLeft: " 434px", marginTop: "-100px;" }}
+        style={{ width: "60vh"}}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}
