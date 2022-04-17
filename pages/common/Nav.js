@@ -4,10 +4,9 @@ import style from "./style/Nav.module.css";
 export default function Nav(){
     return(
         <nav className={style.nav}>
-            <ul>
+            <ul className={style.ul}>
                 <li className={style.li}> <Link href='/'>메인</Link></li>
                 <li className={style.li}> <Link href='/admin/dashboard'>대쉬보드</Link></li>
-                <li className={style.li}> <Link href='/basic'>Basic</Link></li>
                 <li className={style.li}> <Link href='/basic/bmi'>Bmi</Link></li>
                 <li className={style.li}> <Link href='/basic/calc'>계산기</Link></li>
                 <li className={style.li}> <Link href='/basic/counter'>카운터</Link></li>

@@ -2,8 +2,26 @@
     display: flex;
     justify-content: space-between;
     background-color: rgb(208, 200, 245);
+    font-size: 16px;
+    text-decoration: none;
 }
+.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+  }
 .li {
-    display: inline;
-    margin-left: 40px;
-}
+    display: block;
+    color: rgb(123, 15, 231);
+    text-align: center;
+    padding: 14px 16px;
+    margin-left: 3px;
+    float: left;
+    text-decoration: none;
+  }
+.li:hover {
+    background-color: rgb(232, 212, 245);
+    text-decoration: none;
+  }

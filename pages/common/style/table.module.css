@@ -1,13 +1,13 @@
 .table {
   border-collapse: separate; 
-  border-spacing: 1.5px; 
+  border-spacing: 3.5px; 
   text-align: center; 
-  line-height: 1.5; 
-  margin: 10px 10px;
+  line-height: 2.0; 
+  margin: 3px 3px;
   }
   
   .td {
-    border:1px solid rgb(181, 78, 150);
+    border:1px solid rgba(26, 65, 190, 0.913);
   }
   
   .tr {
@@ -23,6 +23,6 @@
     padding: 10px; 
     font-weight: bold; 
     vertical-align: top; 
-    color: #fff; 
-    background: #ce4869 ;
+    color: rgb(253, 252, 252); 
+    background: #dad5d6 ;
   }
