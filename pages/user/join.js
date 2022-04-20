@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { userActions } from '../../redux/reducers/userReducer.ts';
-import tableStyle from "../common/style/table.module.css";
-
+import tableStyles from '../common/style/table.module.css'
 export default function  Join(){
     const [user, setUser] =useState({
         userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
@@ -13,8 +12,7 @@ export default function  Join(){
         const{name, value} = e.target;
         setUser({...user,[name]: value})
     }
-    return <><h1>회원가입폼</h1>
-    <form onSubmit={
+    return <form onSubmit={
         e => {
             e.preventDefault()
             alert(' 진행 1: 회원가입 클릭 ');
@@ -22,37 +20,48 @@ export default function  Join(){
             setUser({
                 userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
             })
+            window.location.href = "./login"
         }
-    }
-    >
-    <div>
-    <label><b>사용자ID</b></label>
-    <input type="text" name='userid' onChange={handleChange} /><br />
-
-    <label htmlFor=""><b>비밀번호</b></label>
-    <input type="text" name='password' onChange={handleChange}/><br />
-
-    <label htmlFor=""><b>이메일</b></label>
-    <input type="text" name='email' onChange={handleChange}/><br />
-
-    <label htmlFor=""><b>이름</b></label>
-    <input type="text" name='name' onChange={handleChange}/><br />
-
-    <label htmlFor=""><b>전화번호</b></label>
-    <input type="text" name='phone' onChange={handleChange}/><br />
-
-    <label htmlFor=""><b>생년월일</b></label>
-    <input type="text" name='birth' onChange={handleChange}/><br />
-
-    <label htmlFor=""><b>주소</b></label>
-    <input type="text" name='address' onChange={handleChange}/><br />
-
-    <button type="submit">회원가입</button><br />
-    
-    </div>
-    <div>
-   
-    </div>
+    }>
+        <table className={tableStyles.table}>
+            <thead>
+                <tr>
+                    <th colSpan={2}><h1>회원가입</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>사용자ID</b></td>
+                    <td><input type="text" name='userid' onChange={handleChange} /></td>
+                </tr>
+                <tr>
+                    <td><b>비밀번호</b></td>
+                    <td><input type="text" name='password' onChange={handleChange}/></td>
+                </tr>
+                <tr>
+                    <td htmlFor=""><b>이메일</b></td>
+                    <td><input type="text" name='email' onChange={handleChange}/></td>
+                </tr>
+                <tr>
+                    <td htmlFor=""><b>이름</b></td>
+                    <td><input type="text" name='name' onChange={handleChange}/></td>
+                </tr>
+                <tr>
+                    <td><b>전화번호</b></td>
+                    <td><input type="text" name='phone' onChange={handleChange}/></td>
+                </tr>
+                <tr>
+                    <td><b>생년월일</b></td>
+                    <td><input type="text" name='birth' onChange={handleChange}/></td>
+                </tr>
+                <tr>
+                    <td><b>주소</b></td>
+                    <td><input type="text" name='address' onChange={handleChange}/></td>
+                </tr>
+                <tr>
+                    <td colSpan={2}><button type="submit">회원가입</button><br /></td>
+                </tr>
+            </tbody>
+        </table>
     </form>
-    </>
 }

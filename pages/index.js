@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useCallback } from 'react';
+import Image from "next/image";
 
 const Button = ({ onClick }) => (
   <button onClick={onClick}>현재 시간</button>
@@ -17,6 +18,9 @@ export default function Home() {
     <h1>HOME</h1>
     <Button onClick={onClick} />
     <div id="timeZone"></div>
+    <body>
+    <Image src="/user/심슨.gif" width="1000" height="600" />
+    </body>
     </>
   )
 }

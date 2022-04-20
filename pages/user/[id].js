@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import tableStyles from '../common/style/table.module.css'
 
 export default function Profile(){
     const router = useRouter()
@@ -26,23 +27,31 @@ export default function Profile(){
         })();
     }, [router.query.id]);*/
 
-    return (<><h1>사용자 프로필</h1>
-    <div>
-    <label><b>사용자 ID</b></label>
-    <input type="text" name='username' value= {router.query.id} /><br />
-
-    <label htmlFor=""><b>비밀번호</b></label>
-    <input type="text" name='password'value={user.password}/><br />
-
-    <label><b>이름</b></label>
-    <input type="text" name='name' value={user.name}/><br />
-
-    <label><b>전화번호</b></label>
-    <input type="text" name='telephone' value={user.telephone}/><br />
-
-   <br />
-    </div>
-    <div>
-    </div>
-    </>)
+    return (
+      <table className={tableStyles.table}>
+      <thead>
+      <tr>
+      <th colSpan={2}><h1>사용자 프로필</h1></th>
+      </tr>
+      </thead>
+    <tbody>
+    <tr>
+    <td><b>사용자 ID</b></td>
+    <input type="text" name='username' value= {router.query.id}/>
+    </tr>
+    <tr>
+    <td htmlFor=""><b>비밀번호</b></td>
+    <input type="text" name='password'value={user.password}/>
+    </tr>
+    <tr>
+    <td><b>이름</b></td>
+    <input type="text" name='name' value={user.name}/>
+    </tr>
+    <tr>
+    <td><b>전화번호</b></td>
+    <input type="text" name='telephone' value={user.telephone}/>
+    </tr>
+    </tbody>
+    
+    </table>)
 }

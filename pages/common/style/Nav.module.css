@@ -1,8 +1,11 @@
 .nav{
-    display: flex;
+    width: 100%;
+    display:flex;
     justify-content: space-between;
-    background-color: rgb(208, 200, 245);
-    font-size: 16px;
+    background-color: rgb(214, 207, 245);
+    font-size: 15px;
+}
+.nav a {
     text-decoration: none;
 }
 .ul {
@@ -10,18 +13,15 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    text-decoration: none;
   }
 .li {
     display: block;
-    color: rgb(123, 15, 231);
+    color: rgb(218, 203, 234);
     text-align: center;
     padding: 14px 16px;
     margin-left: 3px;
     float: left;
-    text-decoration: none;
   }
 .li:hover {
-    background-color: rgb(232, 212, 245);
-    text-decoration: none;
+    background-color: rgb(235, 221, 245);
   }

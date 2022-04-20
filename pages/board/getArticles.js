@@ -8,20 +8,21 @@ const Table = ({ columns, colspan, data }) => {
      <table className={tableStyle.table}>
         <thead>
         {/** <th key={column} className={tableStyle.td}>{column}</th> */}
-         <tr className={tableStyle.tr}>
-         {columns.map((column) => (<th key={column.passengerId} className={tableStyle.td}>{column}</th>))}
+         <tr>
+         {columns.map((column) => (
+             <th key={column.title}>{column}</th>))}
             </tr>
         </thead>
         <tbody>
-            { data.length == 0 ?<tr className={tableStyle.tr}>
-                                <td colSpan={colspan} className={tableStyle.td}>데이터가 없습니다.</td>
+            { data.length == 0 ?<tr>
+                                <td colSpan={colspan}>데이터가 없습니다.</td>
                                 </tr>
             :data.map((board) => (
-                <tr className={tableStyle.tr} key={board.passengerId}>
-                    <td className={tableStyle.td}>{board.passengerId}</td>
-                    <td className={tableStyle.td}>{board.name}</td>
-                    <td className={tableStyle.td}>{board.teamId}</td>
-                    <td className={tableStyle.td}>{board.subject}</td>
+                <tr key={board.title}>
+                    <td>{board.title}</td>
+                    <td>{board.name}</td>
+                    <td>{board.team}</td>
+                    <td>{board.subject}</td>
                 </tr>
             ))}
 
@@ -30,9 +31,8 @@ const Table = ({ columns, colspan, data }) => {
     );
 }
 export default function BoardList(){
-    const columns = ["PassengerId", "Name", "TeamId", "Subject"];
+    const columns = ["Title", "Name", "Team", "Subject"];
     const [data, setData] = useState([])
-    const count = data.length
     useEffect(() => {
         axios.get('http://localhost:5000/api/board/list').then(res=>{
             setData(res.data.boards)
@@ -40,7 +40,7 @@ export default function BoardList(){
     }, [])
     return(<>
         <h1>사용자목록</h1>
-        <div className={tableStyle.td}>
+        <div>
         <Table columns={columns} colspan={4} data={data}/>
         </div>
         </>

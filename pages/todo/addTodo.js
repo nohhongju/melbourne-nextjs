@@ -1,29 +1,55 @@
+import { Checkbox } from "antd";
 import React,{ useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask, addTodo } from '../../redux/reducers/todoReducer'
+import tableStyle from "../common/style/table.module.css";
 // import './styles/Task.scss'
 export default function AddTodo() {
-    const [value, setValue] = useState('')
+    const [todo, setTodo] = useState({task:'', completed:''})
     const dispatch = useDispatch()
+    const handleChange = e => {
+      e.preventDefault()
+      const{name, value} = e.target;
+      setTodo({...todo,[name]: value})
+    }
   return (
      <div className="todoapp stack-large">
-      <h1>일정 등록</h1>
-      <form onSubmit={ e => {
-          e.preventDefault()
-          alert('value ?'+value)
-          if(value) dispatch(addTask({task: value}))
+      <form onSubmit={
+          e => {
+            e.preventDefault()
+            alert(' 진행1: todo등록 클릭 ')
+            setTodo({task:'',completed:''})
       }}>
-        <input
+      <table className={tableStyle.table}>
+      <thead>
+      <tr>
+      <th colSpan={3}><h1>일정 등록</h1></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td><b>TODO</b></td>
+        <td><input
           type="text"
-          id="new-todo-input"
+          id="task"
           className="input input__lg"
-          name="text"
+          name="task"
           autoComplete="off"
-          onChange={ e => setValue(e.target.value)}
-        />
-        <button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
+          onChange={ e => setTodo(e.target.value)}
+        /></td>
+        </tr>
+        <tr>
+        <td><b>Completed</b></td>
+        <td><select name="completed" onChange={ e => setTodo(e.target.value)}>
+        <option value="T">T</option>
+        <option value="F">F</option>
+        </select></td>
+        <td><button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
           Add
-        </button>
+        </button></td>
+        </tr>
+        </tbody>
+        </table>
       </form>
       
       {/**
