@@ -14,7 +14,7 @@ export default function Bmi(){
     const handleSubmit = (e) => {
         e.preventDefault()
         alert(`데이터셋 출력 : ${JSON.stringify(inputs)}`)
-        axios.post(proxy+'/api/basic/bmi',inputs)
+        axios.post(proxy+'/basic/bmi',inputs)
         .then(res => {
             const bmi = res.data
             document.getElementById('result-span').innerHTML =`

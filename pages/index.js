@@ -19,7 +19,7 @@ export default function Home() {
     <Button onClick={onClick} />
     <div id="timeZone"></div>
     <body>
-    <Image src="/user/심슨.gif" width="1000" height="600" />
+    <Image src="/user/궁둥이.gif" width="1000" height="600" />
     </body>
     </>
   )

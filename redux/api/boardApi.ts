@@ -17,7 +17,7 @@ export interface BoardType{
 export const postBoard = async (payload: {
     title: string, name: string, team: string, subject: string}) => {
         try{
-            const response : AxiosResponse <unknown, BoardType[]> = await axios.post(`${SERVER}/api/board/add`, payload, { headers })
+            const response : AxiosResponse <unknown, BoardType[]> = await axios.post(`${SERVER}/board/add`, payload, { headers })
             alert(`진행 5: 응답성공${JSON.stringify(response.data)}`)
             return response.data
         }catch(err){

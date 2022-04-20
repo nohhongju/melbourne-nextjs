@@ -42,7 +42,7 @@ export default function UserList(){
     const columns = ["userid", "Password", "email", "name", "phone", "birth", "address"];
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/api/user/list').then(res=>{
+        axios.get('http://localhost:5000/user/list').then(res=>{
             setData(res.data.users)
         }).catch(err=>{})
     }, [])
