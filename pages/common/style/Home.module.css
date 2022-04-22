@@ -114,3 +114,8 @@
     flex-direction: column;
   }
 }
+
+@Typewriter('#typewriter', {
+  strings: ['Hello', 'World'],
+  autoStart: true,
+})

@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react"
+import React, { useEffect, useState } from "react";
 import tableStyle from "../common/style/table.module.css";
 
 const Table = ({ columns, colspan, data }) => {
@@ -8,15 +7,16 @@ const Table = ({ columns, colspan, data }) => {
      <table className={tableStyle.table}>
         <thead>
         {/** <th key={column} className={tableStyle.td}>{column}</th> */}
-         <tr>
-         {columns.map((column) => (
-             <th key={column.title}>{column}</th>))}
+            <tr>
+                {columns.map((column) => (
+                    <th key={column.title}>{column}</th>))}
             </tr>
         </thead>
         <tbody>
-            { data.length == 0 ?<tr>
-                                <td colSpan={colspan}>데이터가 없습니다.</td>
-                                </tr>
+            { data.length == 0 ?
+                <tr>
+                    <td colSpan={colspan}>데이터가 없습니다.</td>
+                </tr>
             :data.map((board) => (
                 <tr key={board.title}>
                     <td>{board.title}</td>
@@ -25,7 +25,6 @@ const Table = ({ columns, colspan, data }) => {
                     <td>{board.subject}</td>
                 </tr>
             ))}
-
         </tbody>
      </table>
     );

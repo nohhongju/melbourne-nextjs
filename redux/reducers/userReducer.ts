@@ -1,4 +1,4 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface UserType{
     userid: string;
@@ -10,7 +10,6 @@ export interface UserType{
     address: string;
 }
     
-
 export interface UserState{
     loading: boolean;
     data: UserType[];
@@ -27,7 +26,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         joinRequest:(state: UserState, payload) => {
-            alert('진행 2: 리듀서 내부')
+            alert('진행 2: 회원가입 리듀서 내부')
             state.loading = true;
         },
         joinSuccess(state: UserState, {payload}){
@@ -35,6 +34,18 @@ export const userSlice = createSlice({
             state.loading = false;
         },
         joinFailure(state: UserState, {payload}){
+            state.data = payload;
+            state.loading = false;
+        },
+        loginRequest(state: UserState, payload){
+            alert('진행 2: 로그인 리듀서 내부')
+            state.loading = true;
+        },
+        loginSuccess(state: UserState, {payload}){
+            state.data = [...state.data, payload]
+            state.loading = false;
+        },
+        loginFailure(state: UserState, {payload}){
             state.data = payload;
             state.loading = false;
         }

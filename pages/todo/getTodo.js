@@ -1,37 +1,45 @@
-import react from 'react';
-import tableStyles from "../common/style/table.module.css"
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
+import tableStyles from "../common/style/table.module.css"
 
-const Table = ({colspan, data}) => {
+const Table = ({ columns, colspan, data }) => {
     return(
         <table className={tableStyles.table}>
             <thead>
-                <tr className={tableStyles.tr}>
-                    <th className={tableStyles.th}>할 일 목록</th>
+                <tr>
+                {columns.map((column) => (
+                    <th key={column.title}>{column}</th>))}
                 </tr>
             </thead>
             <tbody>
-                {data.length == 0 ? <tr className={tableStyles.tr}>
-                <td colSpan={colspan} className={tableStyles.td}>일정이 없습니다</td>
-                </tr>
+                {data.length == 0 ? 
+                    <tr>
+                        <td colSpan={colspan}>일정이 없습니다</td>
+                    </tr>
                 :data.map((todo) => (
-                    <tr className={tableStyles.tr} key={todo.context}>
-                        <td className={tableStyles.td} key={todo.context}></td>
+                    <tr key={todo.context}>
+                        <td key={todo.context}></td>
                     </tr>
                 ))}
             </tbody>
         </table>
     )}
 export default function TodoList(){
+    const columns = ["TO DO"];
     const [data, setData] = useState([])
-    const count = data.length
+    useEffect(() => {
+        axios.get('http://localhost:5000/todo/get').then(res=>{
+            setData(res.data.todos)
+        }).catch(err=>{})
+    },[])
     return(<>
         <Head>
-            <title>Todo| 할일목록</title>
+            <title>Todo | 할일목록</title>
         </Head>
         <h1>할 일 목록</h1>
-        <Table data = {data}></Table>
-    
+        <div>
+        <Table columns={columns} data={data}/>
+        </div>
         </>)
     }

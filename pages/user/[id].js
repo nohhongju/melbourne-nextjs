@@ -7,7 +7,7 @@ export default function Profile(){
     const router = useRouter()
     const [user, setUser] = useState({})
     useEffect(()=>{
-      axios.get(`http://localhost:5000/api/user/profile/${router.query.id}`)
+      axios.get(`http://localhost:5000/user/profile/${router.query.id}`)
       .then(res=>{
         setUser(res.data.user)
       }).catch(err=>{

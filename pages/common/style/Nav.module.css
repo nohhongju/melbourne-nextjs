@@ -4,6 +4,7 @@
     justify-content: space-between;
     background-color: rgb(214, 207, 245);
     font-size: 15px;
+    text-align: center;
 }
 .nav a {
     text-decoration: none;
@@ -24,4 +25,31 @@
   }
 .li:hover {
     background-color: rgb(235, 221, 245);
+  }
+
+.table {
+  margin: auto;
+  font-size: 15px;
+  width: 900px;
+  border: 1px solid black;
+  }
+  .table thead th {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    height: 20px;
+    border: 1px solid black;
+  }
+
+  .table td {
+    padding: 12px 15px;
+    border: 1px solid black;
+    text-align: center;
+  }
+  .table tbody tr {
+    border: 1px solid black;
+  }
+  .table tbody tr:last-of-type {
+    border: 1px solid black;
   }
