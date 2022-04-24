@@ -19,7 +19,7 @@ export default function Home() {
   return (<>
     <h1><Typewriter
     options={{
-      strings: ['ㅎ'],
+      strings: ['ㅎ...'],
       autoStart: true,
       loop: true,
     }}

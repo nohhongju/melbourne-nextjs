@@ -40,7 +40,7 @@ export default function Nav(){
     <table className={tableStyles.table}>
       <tr>
       <td>
-        <a href={"/"}><Image src="/user/심슨.gif" width="70" height="50" /></a>
+        <a href={"/"}><Image src="/user/후후.gif" width="70" height="50" alt="후후후"/></a>
         <SubMenu title={"기본"} urls={basicUrls} subTitles={basicSubTitle}/>
         <SubMenu id="user" title={"사용자"} urls={userUrls} subTitles={userSubTitle}/>
         <SubMenu title={"투두"} urls={todoUrls} subTitles={todoSubTitle}/>
